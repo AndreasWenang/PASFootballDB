@@ -25,7 +25,7 @@ public class DetailFavourite extends AppCompatActivity {
     String title;
     String date;
     String deskripsi;
-    String path;
+    String badge;
     String id;
 
     TextView tvteam;
@@ -48,11 +48,11 @@ public class DetailFavourite extends AppCompatActivity {
             id = extras.getString("id");
             date = extras.getString("date");
             deskripsi = extras.getString("deskripsi");
-            path = extras.getString("path");
+            badge = extras.getString("badge");
             tvteam.setText(title);
             txtdeskripsi.setText(deskripsi);
             Glide.with(DetailFavourite.this)
-                    .load(path)
+                    .load(badge)
                     .override(Target.SIZE_ORIGINAL)
                     .placeholder(R.mipmap.ic_launcher)
                     .into(ivbadge);
@@ -65,19 +65,5 @@ public class DetailFavourite extends AppCompatActivity {
         realm = Realm.getInstance(configuration);
 
 
-        btnbookmark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                movieModel = new ModelMovieRealm();
-                movieModel.setstrDescriptionEN(deskripsi);
-                movieModel.setstrTeam(title);
-                movieModel.setstrTeamBadge(path);
-                movieModel.setintFormedYear(date);
-
-                realmHelper = new RealmHelper(realm);
-                realmHelper.save(movieModel);
-
-            }
-        });
     }
 }
