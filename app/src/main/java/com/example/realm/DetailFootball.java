@@ -9,58 +9,55 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
-public class DetailMovie extends AppCompatActivity {
+public class DetailFootball extends AppCompatActivity {
     Realm realm;
     RealmHelper realmHelper;
     ModelMovieRealm movieModel;
 
 
     Bundle extras;
-    String title;
-    String date;
+    String team;
     String deskripsi;
-    String path;
+    String badge;
     String id;
 
-    TextView tvjudul;
-    ImageView ivposter;
+    TextView tvteam;
+    ImageView ivbadge;
     TextView tvdesc;
     Button btnbookmark;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_movie);
+        setContentView(R.layout.activity_detail_football);
         extras = getIntent().getExtras();
-        tvjudul = (TextView)findViewById(R.id.tvjudul);
+        tvteam = (TextView)findViewById(R.id.tvteam);
         tvdesc = (TextView)findViewById(R.id.txtdeskripsi);
-        ivposter = (ImageView) findViewById(R.id.ivposter);
+        ivbadge = (ImageView) findViewById(R.id.ivbadge);
         btnbookmark = (Button) findViewById(R.id.btnbookmark);
 
         if (extras != null) {
-            title = extras.getString("judul");
+            team = extras.getString("team");
             id = extras.getString("id");
-            date = extras.getString("date");
-            deskripsi = extras.getString("deskripsi");
-            path = extras.getString("path");
-            tvjudul.setText(title);
+            deskripsi = extras.getString("description");
+            badge = extras.getString("badge");
+            tvteam.setText(team);
             tvdesc.setText(deskripsi);
-            Glide.with(DetailMovie.this)
-                    .load(path)
+            Glide.with(DetailFootball.this)
+                    .load(badge)
                     .override(Target.SIZE_ORIGINAL)
                     .placeholder(R.mipmap.ic_launcher)
-                    .into(ivposter);
+                    .into(ivbadge);
             // and get whatever type user account id is
         }
 
         //Set up Realm
-        Realm.init(DetailMovie.this);
+        Realm.init(DetailFootball.this);
         RealmConfiguration configuration = new RealmConfiguration.Builder().build();
         realm = Realm.getInstance(configuration);
 
@@ -69,10 +66,9 @@ public class DetailMovie extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 movieModel = new ModelMovieRealm();
-                movieModel.setDesc(deskripsi);
-                movieModel.setJudul(title);
-                movieModel.setPath(path);
-                movieModel.setReleaseDate(date);
+                movieModel.setstrDescriptionEN(deskripsi);
+                movieModel.setstrTeam(team);
+                movieModel.setstrTeamBadge(badge);
 
                 realmHelper = new RealmHelper(realm);
                 realmHelper.save(movieModel);

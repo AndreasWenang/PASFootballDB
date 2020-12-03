@@ -37,7 +37,7 @@ public class ListDataFavourite extends AppCompatActivity {
         RealmConfiguration configuration = new RealmConfiguration.Builder().build();
         realm = Realm.getInstance(configuration);
         realmHelper = new RealmHelper(realm);
-        DataArrayList = realmHelper.getAllMovie();
+        DataArrayList = realmHelper.getAllData();
         if (DataArrayList.size() == 0){
             tvnodata.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
@@ -49,10 +49,10 @@ public class ListDataFavourite extends AppCompatActivity {
                 public void onClick(int position) {
                     Intent move = new Intent(getApplicationContext(), DetailFavourite.class);
                     move.putExtra("1d",DataArrayList.get(position).getId());
-                    move.putExtra("judul",DataArrayList.get(position).getJudul());
-                    move.putExtra("date",DataArrayList.get(position).getReleaseDate());
-                    move.putExtra("deskripsi",DataArrayList.get(position).getDesc());
-                    move.putExtra("path",DataArrayList.get(position).getPath());
+                    move.putExtra("team",DataArrayList.get(position).getstrTeam());
+                    move.putExtra("date",DataArrayList.get(position).getintFormedYear());
+                    move.putExtra("deskripsi",DataArrayList.get(position).getstrDescriptionEN());
+                    move.putExtra("badge",DataArrayList.get(position).getstrTeamBadge());
                     // di putextra yang lain
                     startActivity(move);
                 }

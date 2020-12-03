@@ -41,18 +41,18 @@
 
                     <ImageView
                         android:id="@+id/movie1"
-                        android:layout_width="44dp"
-                        android:layout_height="40dp"
+                        android:layout_width="49dp"
+                        android:layout_height="45dp"
                         android:layout_marginLeft="7dp"
                         android:layout_marginTop="15dp"
-                        android:background="@mipmap/home2" />
+                        android:background="@mipmap/ball" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="16dp"
-                        android:text="View Product"
+                        android:text="View Teams"
                         android:textColor="@android:color/black"
                         android:textSize="30dp"
                         android:textStyle="bold" />

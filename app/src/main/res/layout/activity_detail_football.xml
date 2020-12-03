@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     android:background="@mipmap/background1"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -7,13 +7,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailMovie">
+    tools:context=".DetailFootball">
+
 
     <LinearLayout
-        android:layout_width="350dp"
+        android:layout_marginLeft="9dp"
+        android:layout_width="340dp"
         android:layout_height="650dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="35dp"
         android:background="#D5FFFFFF"
         android:orientation="vertical"
         android:outlineSpotShadowColor="@android:color/black">
@@ -24,15 +24,15 @@
             android:textSize="20sp"
             android:layout_margin="20dp"
             android:layout_gravity="center"
-            android:text="judul movie"
-            android:id="@+id/tvjudul"
+            android:text="nama team"
+            android:id="@+id/tvteam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <ImageView
             android:layout_gravity="center"
             android:src="@mipmap/ic_launcher"
-            android:id="@+id/ivposter"
+            android:id="@+id/ivbadge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -45,6 +45,7 @@
             android:layout_height="wrap_content"/>
 
         <Button
+            android:background="@drawable/button_style"
             android:id="@+id/btnbookmark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,5 +54,4 @@
             android:text="Bookmark" />
     </LinearLayout>
 
-
-</LinearLayout>
+</ScrollView>

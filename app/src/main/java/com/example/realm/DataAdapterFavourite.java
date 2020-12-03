@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
@@ -57,12 +56,12 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
 
     @Override
     public void onBindViewHolder(final DatakuViewHolder holder, final int position) {
-        holder.txtNama.setText(dataList.get(position).getJudul());
-        holder.txtNpm.setText(dataList.get(position).getReleaseDate());
-        Log.d("makananku", "onBindViewHolder: "+dataList.get(position).getPath());
+        holder.txtNama.setText(dataList.get(position).getstrTeam());
+        holder.txtFormed.setText(dataList.get(position).getintFormedYear());
+        Log.d("makananku", "onBindViewHolder: "+dataList.get(position).getstrTeamBadge());
         //pakai glide karena untuk nampilkan data gambar dari URL / permission / graddle
         Glide.with(holder.itemView)
-                .load(dataList.get(position).getPath())
+                .load(dataList.get(position).getstrTeamBadge())
                 //.override(Target.SIZE_ORIGINAL)
                 .apply(new RequestOptions().override(600, 200))
                 .placeholder(R.mipmap.ic_launcher)
@@ -76,7 +75,7 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
     }
 
     public class DatakuViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
-        private TextView txtNama, txtNpm;
+        private TextView txtNama, txtFormed;
         CardView card;
         ImageView ivprofile;
 
@@ -86,7 +85,7 @@ public class DataAdapterFavourite extends RecyclerView.Adapter<DataAdapterFavour
             card = (CardView) itemView.findViewById(R.id.cardku);
             ivprofile = (ImageView) itemView.findViewById(R.id.ivprofile);
             txtNama = (TextView) itemView.findViewById(R.id.tvname);
-            txtNpm = (TextView) itemView.findViewById(R.id.tvdesc);
+            txtFormed = (TextView) itemView.findViewById(R.id.tvyear);
             itemView.setOnCreateContextMenuListener(this);
 
             itemView.setOnClickListener(new View.OnClickListener() {

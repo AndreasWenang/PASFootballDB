@@ -2,12 +2,10 @@ package com.example.realm;
 
 public class Model {
     //https://image.tmdb.org/t/p/w500/k68nPLbIST6NP96JmTxmZijEvCA.jpg
-    String original_title;
-    String release_date;
-    String poster_path;
-    Boolean adult;
-    String overview;
-    int vote_count;
+    String strTeam;
+    String intFormedYear;
+    String strTeamBadge;
+    String strDescriptionEN;
     int id;
 
     public int getId() {
@@ -18,53 +16,31 @@ public class Model {
         this.id = id;
     }
 
-    public String getOriginal_title() {
-        return original_title;
+    public String getstrTeam() { return strTeam;
     }
 
-    public void setOriginal_title(String original_title) {
-        this.original_title = original_title;
+    public void setstrTeam(String strTeam) {
+        this.strTeam = strTeam;
     }
 
-    public String getRelease_date() {
-        return release_date;
+    public String getintFormedYear() { return intFormedYear; }
+
+    public void setintFormedYear(String intFormedYear) {
+        this.intFormedYear = intFormedYear;
     }
 
-    public void setRelease_date(String release_date) {
-        this.release_date = release_date;
+    public String getstrTeamBadge() {
+        return strTeamBadge;
     }
 
-    public String getPoster_path() {
-        return poster_path;
+    public void setstrTeamBadge(String strTeamBadge) {
+        this.strTeamBadge = strTeamBadge;
     }
 
-    public void setPoster_path(String poster_path) {
-        this.poster_path = poster_path;
+    public String getstrDescriptionEN() {
+        return strDescriptionEN;
     }
 
-    public Boolean getAdult() {
-        return adult;
-    }
-
-    public void setAdult(Boolean adult) {
-        this.adult = adult;
-    }
-
-    public String getOverview() {
-        return overview;
-    }
-
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
-
-    public int getVote_count() {
-        return vote_count;
-    }
-
-    public void setVote_count(int vote_count) {
-        this.vote_count = vote_count;
-    }
-
+    public void setstrDescriptionEN(String strDescriptionEN) { this.strDescriptionEN = strDescriptionEN; }
 
 }

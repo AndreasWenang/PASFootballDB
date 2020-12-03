@@ -28,19 +28,19 @@ public class DetailFavourite extends AppCompatActivity {
     String path;
     String id;
 
-    TextView tvjudul;
-    ImageView ivposter;
-    TextView tvdesc;
+    TextView tvteam;
+    ImageView ivbadge;
+    TextView txtdeskripsi;
     Button btnbookmark;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_movie);
+        setContentView(R.layout.activity_detail_football);
         extras = getIntent().getExtras();
-        tvjudul = (TextView)findViewById(R.id.tvjudul);
-        tvdesc = (TextView)findViewById(R.id.txtdeskripsi);
-        ivposter = (ImageView) findViewById(R.id.ivposter);
+        tvteam = (TextView)findViewById(R.id.tvteam);
+        txtdeskripsi = (TextView)findViewById(R.id.txtdeskripsi);
+        ivbadge = (ImageView) findViewById(R.id.ivbadge);
         btnbookmark = (Button) findViewById(R.id.btnbookmark);
 
         if (extras != null) {
@@ -49,13 +49,13 @@ public class DetailFavourite extends AppCompatActivity {
             date = extras.getString("date");
             deskripsi = extras.getString("deskripsi");
             path = extras.getString("path");
-            tvjudul.setText(title);
-            tvdesc.setText(deskripsi);
+            tvteam.setText(title);
+            txtdeskripsi.setText(deskripsi);
             Glide.with(DetailFavourite.this)
                     .load(path)
                     .override(Target.SIZE_ORIGINAL)
                     .placeholder(R.mipmap.ic_launcher)
-                    .into(ivposter);
+                    .into(ivbadge);
             // and get whatever type user account id is
         }
 
@@ -69,10 +69,10 @@ public class DetailFavourite extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 movieModel = new ModelMovieRealm();
-                movieModel.setDesc(deskripsi);
-                movieModel.setJudul(title);
-                movieModel.setPath(path);
-                movieModel.setReleaseDate(date);
+                movieModel.setstrDescriptionEN(deskripsi);
+                movieModel.setstrTeam(title);
+                movieModel.setstrTeamBadge(path);
+                movieModel.setintFormedYear(date);
 
                 realmHelper = new RealmHelper(realm);
                 realmHelper.save(movieModel);

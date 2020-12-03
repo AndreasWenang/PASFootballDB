@@ -6,10 +6,10 @@ import io.realm.annotations.PrimaryKey;
 public class ModelMovieRealm extends RealmObject {
     @PrimaryKey
     private Integer id;
-    private String judul;
-    private String desc;
-    private String releaseDate;
-    private String path;
+    private String strTeam;
+    private String strDescriptionEN;
+    private String intFormedYear;
+    private String strTeamBadge;
 
     public Integer getId() {
         return id;
@@ -19,35 +19,35 @@ public class ModelMovieRealm extends RealmObject {
         this.id = id;
     }
 
-    public String getJudul() {
-        return judul;
+    public String getstrTeam() {
+        return strTeam;
     }
 
-    public void setJudul(String judul) {
-        this.judul = judul;
+    public void setstrTeam(String strTeam) {
+        this.strTeam = strTeam;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getstrDescriptionEN() {
+        return strDescriptionEN;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setstrDescriptionEN(String strDescriptionEN) {
+        this.strDescriptionEN = strDescriptionEN;
     }
 
-    public String getReleaseDate() {
-        return releaseDate;
+    public String getintFormedYear() {
+        return intFormedYear;
     }
 
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setintFormedYear(String intFormedYear) {
+        this.intFormedYear = intFormedYear;
     }
 
-    public String getPath() {
-        return path;
+    public String getstrTeamBadge() {
+        return strTeamBadge;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setstrTeamBadge(String strTeamBadge) {
+        this.strTeamBadge = strTeamBadge;
     }
 }
