@@ -22,6 +22,7 @@ public class DetailFootball extends AppCompatActivity {
 
     Bundle extras;
     String team;
+    String date;
     String deskripsi;
     String badge;
     String id;
@@ -44,6 +45,7 @@ public class DetailFootball extends AppCompatActivity {
         if (extras != null) {
             team = extras.getString("team");
             id = extras.getString("id");
+            date = extras.getString("date");
             deskripsi = extras.getString("description");
             badge = extras.getString("badge");
             tvteam.setText(team);
@@ -69,6 +71,7 @@ public class DetailFootball extends AppCompatActivity {
                 movieModel.setstrDescriptionEN(deskripsi);
                 movieModel.setstrTeam(team);
                 movieModel.setstrTeamBadge(badge);
+                movieModel.setintFormedYear(date);
 
                 realmHelper = new RealmHelper(realm);
                 realmHelper.save(movieModel);
