@@ -36,7 +36,7 @@ public class DetailFavourite extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_football);
+        setContentView(R.layout.activity_detail_favourite);
         extras = getIntent().getExtras();
         tvteam = (TextView)findViewById(R.id.tvteam);
         txtdeskripsi = (TextView)findViewById(R.id.txtdeskripsi);
